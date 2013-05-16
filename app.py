@@ -7,10 +7,8 @@ import glob
 import imp
 
 app = Flask(__name__)
-DEBUG = True
-app.config.from_pyfile('app.cfg', silent=True)
-
-
+app.debug = True
+app.config.from_pyfile('app.cfg', silent=False)
 
 # define payload from github
 class Commit:
@@ -50,7 +48,7 @@ def execute_script(script_name):
 
 
 if __name__ == "__main__":
-    if DEBUG:
+    if app.debug:
         app.run(host="0.0.0.0", port=1234, debug=True)
     else:
         import os

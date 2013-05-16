@@ -8,6 +8,7 @@ import imp
 
 app = Flask(__name__)
 DEBUG = True
+app.config.from_pyfile('app.cfg', silent=True)
 
 
 

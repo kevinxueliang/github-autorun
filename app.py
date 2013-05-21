@@ -52,5 +52,5 @@ if __name__ == "__main__":
         app.run(host="0.0.0.0", port=1234, debug=True)
     else:
         import os
-        os.system('gunicorn app:app')
+        os.system('gunicorn -b 0.0.0.0:8000 app:app --daemon')
     
